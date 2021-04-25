@@ -7,6 +7,23 @@ body {
 }
 
 .background {
-    width: 70%;
+    background-image: url(./assets/bakery_bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 1000px;
+    height: 600px;
     margin: 20px auto;
+    position: relative;
 }
+
+img {
+    width: 8rem;
+    position: absolute;
+    z-index: 1;
+    bottom: 200px;
+}
+
+.hidden {
+    display: none;
+}
+
