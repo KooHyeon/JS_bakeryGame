@@ -16,6 +16,23 @@ body {
     position: relative;
 }
 
+.count__container {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    left: 450px;
+    top:10px;
+    width: 150px;
+    height: 150px;
+    background-color: wheat;
+    border-radius: 50%;
+}
+
+
 img {
     width: 8rem;
     position: absolute;
