@@ -32,6 +32,10 @@ body {
     border-radius: 50%;
 }
 
+.play__btn {
+    padding: 20px
+}
+
 
 img {
     width: 8rem;
