@@ -3,16 +3,25 @@
 const playBtn = document.querySelector('.play__btn');
 const replayBtn = document.querySelector('.replay__btn')
 
+const imgContainer = document.querySelector('.img__container');
 const bg = document.querySelector('.background');
 const imgs = document.querySelectorAll('img');
 const breads = document.querySelectorAll('.bread');
 const runjis = document.querySelectorAll('.runji');
 
-    
 const maxHeight = bg.offsetHeight / 3;
 const maxWidth = 800;
-
 const maxImg = 16
+
+const countTimer = document.querySelector('.count__timer');
+countTimer.textContent = 10;
+const countNumber = document.querySelector('.count__number');
+const countFrom = 10;
+let countSec = 0;
+
+let presentNumber = 0;
+const goalNumber = 10;
+countNumber.textContent = `${presentNumber} / ${goalNumber}`;
 
 function createImage () {
     for (let i = 0; i < maxImg; i++ ) {
@@ -27,20 +36,11 @@ function createImage () {
 };
 
 
-const countTimer = document.querySelector('.count__timer');
-countTimer.textContent = 10;
-const countNumber = document.querySelector('.count__number');
-const countFrom = 10;
-let countSec = 0;
-
-let presentNumber = 0;
-const goalNumber = 10;
-countNumber.textContent = `${presentNumber} / ${goalNumber}`;
-
 function playGame () {
     playBtn.classList.add('hidden');
     countTimer.classList.remove('hidden');
     countNumber.classList.remove('hidden');
+    imgContainer.classList.remove('hidden');
 
     const countTime = window.setInterval(function() {
         countTimer.textContent = countFrom - countSec;
@@ -54,6 +54,7 @@ function playGame () {
             countTimer.classList.add('hidden');
             countNumber.classList.add('hidden');
             presentNumber = 0;
+            imgContainer.classList.add('hidden');
         } else if (presentNumber === 10) {
             clearInterval(countTime);
             alert("You Win!");
@@ -61,10 +62,10 @@ function playGame () {
             countTimer.classList.add('hidden');
             countNumber.classList.add('hidden');
             presentNumber = 0;
+            imgContainer.classList.add('hidden');
         }
     } , 1000);
 
-const imgContainer = document.querySelector('.img__container');
 imgContainer.addEventListener('click', (e) => {
     if (e.target.className === 'runji') {
         clearInterval(countTime);
@@ -73,6 +74,7 @@ imgContainer.addEventListener('click', (e) => {
         countTimer.classList.add('hidden');
         countNumber.classList.add('hidden');
         presentNumber = 0;
+        imgContainer.classList.add('hidden');
     } else if (e.target.className === 'bread') {
         presentNumber = presentNumber + 1;
         e.target.classList.add("hidden");
