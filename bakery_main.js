@@ -1,6 +1,7 @@
 "use strict";
 
 const playBtn = document.querySelector('.play__btn');
+const replayBtn = document.querySelector('.replay__btn')
 
 const bg = document.querySelector('.background');
 const imgs = document.querySelectorAll('img');
@@ -36,9 +37,7 @@ let presentNumber = 0;
 const goalNumber = 10;
 countNumber.textContent = `${presentNumber} / ${goalNumber}`;
 
-
-playBtn.addEventListener('click', () => {
-    createImage();
+function playGame () {
     playBtn.classList.add('hidden');
     countTimer.classList.remove('hidden');
     countNumber.classList.remove('hidden');
@@ -50,23 +49,48 @@ playBtn.addEventListener('click', () => {
     
         if (countSec > 10) {
             clearInterval(countTime);
-            alert("Time's out!");}
-    
+            alert("Time's out!");
+            replayBtn.classList.remove('hidden');
+            countTimer.classList.add('hidden');
+            countNumber.classList.add('hidden');
+            presentNumber = 0;
+        } else if (presentNumber === 10) {
+            clearInterval(countTime);
+            alert("You Win!");
+            replayBtn.classList.remove('hidden');
+            countTimer.classList.add('hidden');
+            countNumber.classList.add('hidden');
+            presentNumber = 0;
+        }
     } , 1000);
-})
 
 const imgContainer = document.querySelector('.img__container');
 imgContainer.addEventListener('click', (e) => {
-    if (e.target.className === 'runji' && e.target.className !== 'disable') {
-        alert("Lose!");
+    if (e.target.className === 'runji') {
         clearInterval(countTime);
-        e.target.classList.add('disable');
-        console.log(e.target.className);
-    } else if (e.target.className === 'bread' && e.target.className !== 'disable') {
+        alert("Lose!");
+        replayBtn.classList.remove('hidden');
+        countTimer.classList.add('hidden');
+        countNumber.classList.add('hidden');
+        presentNumber = 0;
+    } else if (e.target.className === 'bread') {
         presentNumber = presentNumber + 1;
-        e.target.classList.add('disable');
-    } else if (presentNumber == goalNumber) {
-        alert("WIN");
-    }
+        e.target.classList.add("hidden");
+    } 
     countNumber.textContent = `${presentNumber} / ${goalNumber}`;
 });
+}
+
+
+playBtn.addEventListener('click', () => {
+    createImage();
+    playGame();
+})
+
+replayBtn.addEventListener('click', () => {
+    createImage();
+    replayBtn.classList.add('hidden');
+    countTimer.classList.remove('hidden');
+    countNumber.classList.remove('hidden');
+    playGame();
+})
