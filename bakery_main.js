@@ -29,7 +29,7 @@ function createImage () {
         const y =  Math.floor( Math.random() * maxHeight );
         const r = [x, y];
 
-        imgs[i].classList.remove("hidden");
+        imgs[i].classList.remove("hidden"); 
         imgs[i].style.bottom = r[1] + 'px';
         imgs[i].style.left = r[0] + 'px';
     }
@@ -37,6 +37,14 @@ function createImage () {
 
 
 function playGame () {
+    const bgAudio = new Audio('./assets/sound/bg.mp3')
+    const alertAudio = new Audio('./assets/sound/alert.wav')
+    const winAudio = new Audio('./assets/sound/game_win.mp3')
+    const runjiAudio = new Audio('./assets/sound/bug_pull.mp3')
+    const breadAudio = new Audio('./assets/sound/carrot_pull.mp3')
+
+    bgAudio.play();
+
     playBtn.classList.add('hidden');
     countTimer.classList.remove('hidden');
     countNumber.classList.remove('hidden');
@@ -55,6 +63,8 @@ function playGame () {
             countNumber.classList.add('hidden');
             presentNumber = 0;
             imgContainer.classList.add('hidden');
+            bgAudio.pause();
+            alertAudio.play();
         } else if (presentNumber === 10) {
             clearInterval(countTime);
             alert("You Win!");
@@ -63,6 +73,8 @@ function playGame () {
             countNumber.classList.add('hidden');
             presentNumber = 0;
             imgContainer.classList.add('hidden');
+            bgAudio.pause();
+            winAudio.play();
         }
     } , 1000);
 
@@ -75,9 +87,12 @@ imgContainer.addEventListener('click', (e) => {
         countNumber.classList.add('hidden');
         presentNumber = 0;
         imgContainer.classList.add('hidden');
+        bgAudio.pause();
+        runjiAudio.play();
     } else if (e.target.className === 'bread') {
         presentNumber = presentNumber + 1;
         e.target.classList.add("hidden");
+        breadAudio.play();
     } 
     countNumber.textContent = `${presentNumber} / ${goalNumber}`;
 });
