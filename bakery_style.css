@@ -6,7 +6,16 @@ body {
     text-align: center;
 }
 
-.background {
+button {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    background: white;
+    border-radius: 20%;
+    padding: 0;
+  }
+
+.game__background {
     background-image: url(./assets/bakery_bg.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -16,7 +25,7 @@ body {
     position: relative;
 }
 
-.count__container {
+.game__button {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -32,12 +41,19 @@ body {
     border-radius: 50%;
 }
 
-.play__btn {
-    padding: 20px
+.game__playbtn {
+    font-size: 32px;
+    background-color: transparent;
+    transition: transfrom 300ms ease-in;
 }
 
-.replay__btn {
-    padding: 20px
+.game__playbtn:hover {
+    transform: scale(1.1);
+}
+
+.game__field {
+    height: 250px;
+    width: 800px;
 }
 
 
@@ -45,8 +61,13 @@ img {
     width: 8rem;
     position: absolute;
     z-index: 1;
-    bottom: 200px;
+    transition: transfrom 300ms ease-in;
 }
+
+img:hover {
+    transform: scale(0.9);
+}
+
 
 .hidden {
     display: none;

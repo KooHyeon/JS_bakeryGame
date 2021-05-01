@@ -6,34 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="bakery_style.css">
-    <script src="./bakery_main.js" defer></script>
+    <script type="module" src="./src/bakery_main.js" defer></script>
 </head>
 <body>
-    <div class="background">
-        <div class="count__container">
-            <h2 class="count__timer hidden"></h2>
-            <h1 class="count__number hidden"></h1>
-            <h1 class="play__btn">PLAY</h1>
-            <h1 class="replay__btn hidden">REPLAY</h1>
-        </div>
-        <section class="img__container">
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_bread.png" class="bread hidden" />
-            <img src="./assets/bakery_runji.png" class="runji hidden" />
-            <img src="./assets/bakery_runji2.png" class="runji hidden" />
-            <img src="./assets/bakery_runji3.png" class="runji hidden" />
-            <img src="./assets/bakery_runji.png" class="runji hidden" />
-            <img src="./assets/bakery_runji2.png" class="runji hidden" />
-            <img src="./assets/bakery_runji3.png" class="runji hidden" />
+    <section class="game__background">
+        <section class="game__button">
+            <div class="game__count">
+                <h2 class="count__timer hidden"></h2>
+                <h1 class="count__number hidden"></h1>
+            </div>
+            <button type=button class="game__playbtn">
+                Play?
+            </button>
         </section>
-    </div>
+        <section class="game__field">
+            <img class="bread hidden" src="./assets/bakery_bread.png" alt="bread">
+            <img class="bread hidden" src="./assets/bakery_bread.png" alt="bread">
+            <img class="bread hidden" src="./assets/bakery_bread.png" alt="bread">
+            <img class="bread hidden" src="./assets/bakery_bread.png" alt="bread">
+            <img class="bread hidden" src="./assets/bakery_bread.png" alt="bread">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji2.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji3.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji2.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji3.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji2.png" alt="cat">
+            <img class=
+            "runji hidden"src="./assets/bakery_runji3.png" alt="cat">
+        </section>
+    </section>
 </body>
-</html>
+</html> 
